@@ -1,0 +1,302 @@
+﻿{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Pelicula.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1/pelicula/all": {
+      "get": {
+        "tags": [
+          "Pelicula"
+        ],
+        "operationId": "all",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pelicula"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pelicula"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pelicula"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/pelicula/{id}": {
+      "get": {
+        "tags": [
+          "Pelicula"
+        ],
+        "operationId": "pelicula",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/pelicula/create": {
+      "post": {
+        "tags": [
+          "Pelicula"
+        ],
+        "operationId": "create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pelicula"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pelicula"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pelicula"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/pelicula/update": {
+      "put": {
+        "tags": [
+          "Pelicula"
+        ],
+        "operationId": "update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pelicula"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pelicula"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pelicula"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/pelicula/delete": {
+      "delete": {
+        "tags": [
+          "Pelicula"
+        ],
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pelicula"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ObjectId": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "timestamp": {
+            "type": "integer",
+            "readOnly": true,
+            "format": "int32"
+          },
+          "machine": {
+            "type": "integer",
+            "readOnly": true,
+            "format": "int32"
+          },
+          "pid": {
+            "type": "integer",
+            "readOnly": true,
+            "format": "int32"
+          },
+          "increment": {
+            "type": "integer",
+            "readOnly": true,
+            "format": "int32"
+          },
+          "creationTime": {
+            "type": "string",
+            "readOnly": true,
+            "format": "date-time"
+          }
+        }
+      },
+      "Pelicula": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ObjectId"
+          },
+          "fechaCreacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "esActivo": {
+            "type": "boolean"
+          },
+          "fechaModificacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "esEliminado": {
+            "type": "boolean"
+          },
+          "idPelicula": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "duracion": {
+            "type": "string",
+            "nullable": true
+          },
+          "precio": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      }
+    }
+  }
+}
