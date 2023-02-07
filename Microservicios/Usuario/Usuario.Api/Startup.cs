@@ -1,8 +1,5 @@
-using Gateway.Aplicacion;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Gateway.Api
+namespace Usuario.Api
 {
     public class Startup
     {
@@ -28,11 +25,6 @@ namespace Gateway.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen(options =>
-            {
-                options.CustomSchemaIds(type => type.FullName);
-            });
-            services.AddAplicacion(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,9 +33,6 @@ namespace Gateway.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI();
-
             }
 
             app.UseRouting();
@@ -53,12 +42,6 @@ namespace Gateway.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapGet("/",
-                   async context =>
-                   {
-                       string color = env.IsDevelopment() ? "Gray" : "Green";
-                       await context.Response.WriteAsync($"<h1 style='color:{color};'>[MS.Api] Environment: <a href='/swagger'>{env.EnvironmentName}</a></h1>");
-                   });
             });
         }
     }
