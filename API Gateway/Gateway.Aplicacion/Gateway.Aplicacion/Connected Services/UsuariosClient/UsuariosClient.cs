@@ -31,12 +31,12 @@ namespace Gateway.Aplicacion.UsuariosClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Usuario> ApiV1UsuarioAsync(int id);
+        System.Threading.Tasks.Task<Usuario> ApiV1UsuarioAsync(double id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Usuario> ApiV1UsuarioAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Usuario> ApiV1UsuarioAsync(double id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -178,7 +178,7 @@ namespace Gateway.Aplicacion.UsuariosClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Usuario> ApiV1UsuarioAsync(int id)
+        public virtual System.Threading.Tasks.Task<Usuario> ApiV1UsuarioAsync(double id)
         {
             return ApiV1UsuarioAsync(id, System.Threading.CancellationToken.None);
         }
@@ -186,7 +186,7 @@ namespace Gateway.Aplicacion.UsuariosClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Usuario> ApiV1UsuarioAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<Usuario> ApiV1UsuarioAsync(double id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");

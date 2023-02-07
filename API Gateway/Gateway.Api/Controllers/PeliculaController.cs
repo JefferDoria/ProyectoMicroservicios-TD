@@ -4,6 +4,7 @@ using static Gateway.Api.Routes.ApiRoutes;
 using System.Collections.Generic;
 using Peliculas = Gateway.Aplicacion.PeliculasClient;
 using System.Threading.Tasks;
+using Gateway.Aplicacion.PeliculasClient;
 
 namespace Gateway.Api.Controllers
 {

@@ -28,7 +28,7 @@ namespace Usuario.Api.Controllers
         }
 
         [HttpGet(RouteUsuario.GetById)]
-        public dominio.Usuario BuscarUsuario(int id)
+        public dominio.Usuario BuscarUsuario(double id)
         {
             try
             {
