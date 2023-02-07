@@ -23,7 +23,7 @@ namespace Usuario.Api.Controllers
         [HttpGet(RouteUsuario.GetAll)]
         public IEnumerable<dominio.Usuario> ListarUsuarios()
         {
-            var listaUsuario = _service.ListarUsuario();
+            var listaUsuario = _service.ListarUsuarios();
             return listaUsuario;
         }
 
