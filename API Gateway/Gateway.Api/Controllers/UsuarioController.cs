@@ -18,7 +18,7 @@ namespace Gateway.Api.Controllers
             _usuariosClient = usuariosClient;
         }
 
-        [HttpGet(RoutePelicula.GetAll)]
+        [HttpGet(RouteUsuario.GetAll)]
         public Task<ICollection<Usuarios.Usuario>> ListarUsuario()
         {
             var listaUsuario = _usuariosClient.ApiV1UsuarioAllAsync();
@@ -28,12 +28,12 @@ namespace Gateway.Api.Controllers
         [HttpGet(RouteUsuario.GetById)]
         public Task<Usuarios.Usuario> BuscarUsuario(double id)
         {
-            var objPelicula = _usuariosClient.ApiV1UsuarioAsync(id);
-            return objPelicula;
+            var objUsuario = _usuariosClient.ApiV1UsuarioAsync(id);
+            return objUsuario;
         }
 
-        [HttpPost(RoutePelicula.Create)]
-        public ActionResult<Task<Usuarios.Usuario>> CrearPelicula(Usuarios.Usuario usuario)
+        [HttpPost(RouteUsuario.Create)]
+        public ActionResult<Task<Usuarios.Usuario>> CrearUsuario(Usuarios.Usuario usuario)
         {
             _usuariosClient.ApiV1UsuarioCreateAsync(usuario);
 

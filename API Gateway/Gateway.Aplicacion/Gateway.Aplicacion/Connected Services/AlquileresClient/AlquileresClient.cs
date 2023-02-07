@@ -613,6 +613,12 @@ namespace Gateway.Aplicacion.AlquileresClient
         [Newtonsoft.Json.JsonProperty("idAlquiler", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double IdAlquiler { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("idUsuario", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double IdUsuario { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("idPelicula", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double IdPelicula { get; set; }
+
         [Newtonsoft.Json.JsonProperty("fechaInicio", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FechaInicio { get; set; }
 

@@ -29,6 +29,7 @@
 
             // Write
             public const string Create = Base + "/Alquiler/create";
+            public const string Alquilar = Base + "/Alquiler/alquilar";
             public const string Update = Base + "/Alquiler/update";
             public const string Delete = Base + "/Alquiler/delete";
         }

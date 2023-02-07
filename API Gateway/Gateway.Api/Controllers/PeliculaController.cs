@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Peliculas = Gateway.Aplicacion.PeliculasClient;
 using System.Threading.Tasks;
 using Gateway.Aplicacion.PeliculasClient;
+using Serilog;
+using System;
 
 namespace Gateway.Api.Controllers
 {
@@ -21,30 +23,61 @@ namespace Gateway.Api.Controllers
         [HttpGet(RoutePelicula.GetAll)]
         public Task<ICollection<Peliculas.Pelicula>> ListarPeliculas()
         {
-            var listaPelicula = _peliculasClient.ApiV1PeliculaAllAsync();
-            return listaPelicula;
+            try
+            {
+                var listaPelicula = _peliculasClient.ApiV1PeliculaAllAsync();
+                return listaPelicula;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("ApiException: " + ex);
+            }
+            return null;
         }
 
         [HttpGet(RoutePelicula.GetById)]
         public Task<Peliculas.Pelicula> BuscarPelicula(int id)
         {
-            var objPelicula = _peliculasClient.ApiV1PeliculaAsync(id);
-            return objPelicula;
+            try
+            {
+                var objPelicula = _peliculasClient.ApiV1PeliculaAsync(id);
+                return objPelicula;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Exception: " +ex);
+            }
+            return null;
         }
 
         [HttpPost(RoutePelicula.Create)]
         public ActionResult<Task<Peliculas.Pelicula>> CrearPelicula(Peliculas.Pelicula pelicula)
         {
-            _peliculasClient.ApiV1PeliculaCreateAsync(pelicula);
+            try
+            {
+                _peliculasClient.ApiV1PeliculaCreateAsync(pelicula);
 
-            return Ok();
+                return Ok();
+            } catch (Exception ex)
+            {
+                Log.Error("Exception: " +ex);
+            }
+            return null;
         }
 
         [HttpDelete(RoutePelicula.Delete)]
         public ActionResult<Task<Peliculas.Pelicula>> EliminarPelicula(int id)
         {
-            _peliculasClient.ApiV1PeliculaDeleteAsync(id);
-            return Ok(id);
+            try
+            {
+                _peliculasClient.ApiV1PeliculaDeleteAsync(id);
+                return Ok(id);
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Exception: " + ex);
+            }
+            return null;
         }
     }
 }

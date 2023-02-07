@@ -33,10 +33,20 @@ namespace Gateway.Aplicacion
             {
                 client.BaseAddress = new Uri(msSettings.PeliculasUrl);
             });
+            services.AddHttpClient("Alquiler", client =>
+            {
+                client.BaseAddress = new Uri(msSettings.AlquileresUrl);
+            });
+            services.AddHttpClient("Usuario", client =>
+            {
+                client.BaseAddress = new Uri(msSettings.UsuariosUrl);
+            });
 
             #endregion
 
             services.AddTransient<PeliculasClient.IClient, PeliculasClient.Client>();
+            services.AddTransient<AlquileresClient.IClient, AlquileresClient.Client>();
+            services.AddTransient<UsuariosClient.IClient, UsuariosClient.Client>();
 
             return services;
         }

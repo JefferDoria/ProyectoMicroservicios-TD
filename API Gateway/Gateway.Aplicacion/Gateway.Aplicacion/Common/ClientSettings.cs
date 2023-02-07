@@ -2,7 +2,9 @@
 {
     public class ClientSettings
     {
-        public string PeliculasUrl { get; set; }        
+        public string PeliculasUrl { get; set; }
+        public string AlquileresUrl { get; set; }
+        public string UsuariosUrl { get; set; }
 
     }
 }

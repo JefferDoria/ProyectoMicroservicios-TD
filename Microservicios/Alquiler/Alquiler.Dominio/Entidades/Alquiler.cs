@@ -8,16 +8,18 @@ using System.Text;
 
 namespace Alquiler.Dominio.Entidades
 {
-    [CollectionProperty("alquiler")]
+    [CollectionProperty("Alquiler")]
     [BsonIgnoreExtraElements]
     public class Alquiler : EntityToLower<ObjectId>
     {
         public double IdAlquiler { get; set; }
 
-        public string fechaInicio { get; set; }
+        public string FechaInicio { get; set; }
 
         public string FechaFin { get; set; }
 
-        
+        public double IdCliente { get; set; }
+
+        public double IdPelicula { get; set; }
     }
 }
