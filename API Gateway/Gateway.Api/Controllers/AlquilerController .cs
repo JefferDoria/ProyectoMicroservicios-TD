@@ -14,6 +14,7 @@ using Gateway.Aplicacion.Alquileres.Request;
 
 namespace Gateway.Api.Controllers
 {
+
     [ApiController]
     public class AlquilerController : ControllerBase
     {
@@ -39,6 +40,7 @@ namespace Gateway.Api.Controllers
             catch(Exception ex)
             {
                 Log.Error("ApiException: "+ex);
+                
             }
             return null;
         }
@@ -69,6 +71,8 @@ namespace Gateway.Api.Controllers
             catch (Exception ex)
             {
                 Log.Error("Exception: " +ex);
+                Log.Logger.Error("Exception: " + ex);
+
             }
         }
 

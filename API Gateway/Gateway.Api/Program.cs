@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,10 @@ namespace Gateway.Api
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration().WriteTo.File("log.txt").CreateLogger();
             CreateHostBuilder(args).Build().Run();
         }
 

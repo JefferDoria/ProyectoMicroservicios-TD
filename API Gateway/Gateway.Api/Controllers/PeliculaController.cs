@@ -10,6 +10,7 @@ using System;
 
 namespace Gateway.Api.Controllers
 {
+
     [ApiController]
     public class PeliculaController : ControllerBase
     {
@@ -45,7 +46,7 @@ namespace Gateway.Api.Controllers
             }
             catch (Exception ex)
             {
-                Log.Error("Exception: " +ex);
+                Log.Information("Exception: " +ex);
             }
             return null;
         }
@@ -58,7 +59,9 @@ namespace Gateway.Api.Controllers
                 _peliculasClient.ApiV1PeliculaCreateAsync(pelicula);
             } catch (Exception ex)
             {
+                
                 Log.Error("Exception: " +ex);
+                Log.Logger.Error("Exception: " + ex);
             }
         }
 

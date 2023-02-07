@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Usuarios = Gateway.Aplicacion.UsuariosClient;
 using System.Threading.Tasks;
 using Gateway.Aplicacion.UsuariosClient;
+using System;
+using Serilog;
 
 namespace Gateway.Api.Controllers
 {
@@ -21,28 +23,58 @@ namespace Gateway.Api.Controllers
         [HttpGet(RouteUsuario.GetAll)]
         public Task<ICollection<Usuarios.Usuario>> ListarUsuario()
         {
-            var listaUsuario = _usuariosClient.ApiV1UsuarioAllAsync();
-            return listaUsuario;
+            try
+            {
+                var listaUsuario = _usuariosClient.ApiV1UsuarioAllAsync();
+                return listaUsuario;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Exception: " + ex);
+            }
+            return null;
         }
 
         [HttpGet(RouteUsuario.GetById)]
         public Task<Usuarios.Usuario> BuscarUsuario(double id)
         {
-            var objUsuario = _usuariosClient.ApiV1UsuarioAsync(id);
-            return objUsuario;
+            try
+            {
+                var objUsuario = _usuariosClient.ApiV1UsuarioAsync(id);
+                return objUsuario;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Exception: " + ex);
+            }
+            return null;
         }
 
         [HttpPost(RouteUsuario.Create)]
         public void CrearUsuario(Usuarios.Usuario usuario)
         {
-            _usuariosClient.ApiV1UsuarioCreateAsync(usuario);
+            try
+            {
+                _usuariosClient.ApiV1UsuarioCreateAsync(usuario);
+            } catch (Exception ex)
+            {
+                Log.Information("Exception: " + ex);
+            }
+            
         }
 
         [HttpDelete(RouteUsuario.Delete)]
         public void EliminarUsuario(double id)
         {
-            _usuariosClient.ApiV1UsuarioDeleteAsync(id);
-            
+            try
+            {
+                _usuariosClient.ApiV1UsuarioDeleteAsync(id);
+            }
+            catch (Exception ex)
+            {
+                Log.Warning("Exception: " + ex);
+            }
+                        
         }
     }
 }
