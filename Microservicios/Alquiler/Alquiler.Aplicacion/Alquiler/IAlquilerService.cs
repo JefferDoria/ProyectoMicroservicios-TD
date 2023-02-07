@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
-using dominio = Usuario.Dominio.Entidades;
+using dominio = Alquiler.Dominio.Entidades;
 
-namespace Usuario.Aplicacion.Usuario
+namespace Alquiler.Aplicacion.Usuario
 {
-    public interface IUsuarioService
+    public interface IAlquilerService
     {
-        List<dominio.Usuario> ListarUsuarios();
-        bool RegistrarUsuario(dominio.Usuario usuario);
-        dominio.Usuario BuscarUsuario(double _id);
-        bool ModificarUsuario(dominio.Usuario usuario);
-        void EliminarUsuario(double _id);
+        List<dominio.Alquiler> ListarAlquiler();
+        bool RegistrarAlquiler(dominio.Alquiler alquiler);
+        dominio.Alquiler BuscarAlquiler(double _id);
+        bool ModificarAlquiler(dominio.Alquiler alquiler);
+        void EliminarAlquiler(double _id);
     }
 }

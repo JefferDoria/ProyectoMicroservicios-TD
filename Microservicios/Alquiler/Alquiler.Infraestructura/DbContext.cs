@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MongoDB.Driver;
+using Release.MongoDB.Repository;
 
-namespace Alquiler.Infraestructura
+
+namespace Usuario.Infraestructura
 {
-    internal class DbContext
+    public class DbContext : DataContext, IDbContext
     {
+        public DbContext(MongoUrl mongoUrl) : base(mongoUrl)
+        {
+        }
     }
 }

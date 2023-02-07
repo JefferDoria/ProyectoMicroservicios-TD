@@ -1,61 +1,62 @@
-﻿using MongoDB.Driver;
+﻿using Alquiler.Aplicacion.Usuario;
+using MongoDB.Driver;
 using Release.MongoDB.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using dominio = Usuario.Dominio.Entidades;
+using dominio = Alquiler.Dominio.Entidades;
 
-namespace Usuario.Aplicacion.Usuario
+namespace Alquiler.Aplicacion.Alquiler
 {
 
-    public class UsuarioService : IUsuarioService
+    public class AlquilerService : IAlquilerService
     {
-        private readonly ICollectionContext<dominio.Usuario> _usuario;
-        private readonly IBaseRepository<dominio.Usuario> _usuarioR;
+        private readonly ICollectionContext<dominio.Alquiler> _alquiler;
+        private readonly IBaseRepository<dominio.Alquiler> _alquilerR;
 
-        public UsuarioService(ICollectionContext<dominio.Usuario> usuario,
-                                IBaseRepository<dominio.Usuario> usuarioR)
+        public AlquilerService(ICollectionContext<dominio.Alquiler> alquiler,
+                                IBaseRepository<dominio.Alquiler> alquilerR)
         {
-            _usuario = usuario;
-            _usuarioR = usuarioR;
+            _alquiler = alquiler;
+            _alquilerR = alquilerR;
         }
 
-        public List<dominio.Usuario> ListarUsuarios()
+        public List<dominio.Alquiler> ListarAlquiler()
         {
-            Expression<Func<dominio.Usuario, bool>> filter = s => s.esEliminado == false;
-            var items = (_usuario.Context().FindAsync(filter, null).Result).ToList();
+            Expression<Func<dominio.Alquiler, bool>> filter = s => s.esEliminado == false;
+            var items = (_alquiler.Context().FindAsync(filter, null).Result).ToList();
 
             return items;
         }
 
-        public bool RegistrarUsuario(dominio.Usuario usuario)
+        public bool RegistrarAlquiler(dominio.Alquiler alquiler)
         {
-            usuario.esEliminado = false;
-            usuario.fechaCreacion = DateTime.Now;
-            usuario.esActivo = true;
-            _usuarioR.InsertOne(usuario);
+            alquiler.esEliminado = false;
+            alquiler.fechaCreacion = DateTime.Now;
+            alquiler.esActivo = true;
+            _alquilerR.InsertOne(alquiler);
 
             return true;
         }
 
-        public dominio.Usuario BuscarUsuario(double _id)
+        public dominio.Alquiler BuscarAlquiler(double _id)
         {
-            Expression<Func<dominio.Usuario, bool>> filter = s => s.esEliminado == false && s.IdUsuario == _id;
-            var item = (_usuario.Context().FindAsync(filter, null).Result).FirstOrDefault();
+            Expression<Func<dominio.Alquiler, bool>> filter = s => s.esEliminado == false && s.IdAlquiler == _id;
+            var item = (_alquiler.Context().FindAsync(filter, null).Result).FirstOrDefault();
             return item;
         }
 
-        public bool ModificarUsuario(dominio.Usuario usuario)
+        public bool ModificarAlquiler(dominio.Alquiler alquiler)
         {
-            Expression<Func<dominio.Usuario, bool>> filter = s => s.esEliminado == false && s.IdUsuario == usuario.IdUsuario;
-            var usuarioActual = (_usuario.Context().FindAsync(filter, null).Result).FirstOrDefault();
+            Expression<Func<dominio.Alquiler, bool>> filter = s => s.esEliminado == false && s.IdAlquiler == alquiler.IdAlquiler;
+            var alquilerActual = (_alquiler.Context().FindAsync(filter, null).Result).FirstOrDefault();
             return true;
         }
 
-        public void EliminarUsuario(double _id)
+        public void EliminarAlquiler(double _id)
         {
-            Expression<Func<dominio.Usuario, bool>> filter = s => s.esEliminado == false && s.IdUsuario == _id;
-            var item = (_usuario.Context().FindOneAndDelete(filter, null));
+            Expression<Func<dominio.Alquiler, bool>> filter = s => s.esEliminado == false && s.IdAlquiler == _id;
+            var item = (_alquiler.Context().FindOneAndDelete(filter, null));
 
         }
     }

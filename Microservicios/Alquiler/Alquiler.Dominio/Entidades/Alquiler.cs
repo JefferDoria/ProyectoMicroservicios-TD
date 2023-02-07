@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Usuario.Dominio.Entidades
+namespace Alquiler.Dominio.Entidades
 {
     [CollectionProperty("alquiler")]
     [BsonIgnoreExtraElements]
-    public class Usuario : EntityToLower<ObjectId>
+    public class Alquiler : EntityToLower<ObjectId>
     {
         public double IdAlquiler { get; set; }
 
