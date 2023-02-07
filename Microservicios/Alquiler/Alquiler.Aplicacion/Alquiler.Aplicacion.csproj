@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Alquiler.Dominio\Alquiler.Dominio.csproj" />
+    <ProjectReference Include="..\Alquiler.Infraestructura\Alquiler.Infraestructura.csproj" />
   </ItemGroup>
 
 </Project>

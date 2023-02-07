@@ -2,7 +2,7 @@
 using Release.MongoDB.Repository;
 
 
-namespace Usuario.Infraestructura
+namespace Alquiler.Infraestructura
 {
     public class DbContext : DataContext, IDbContext
     {
