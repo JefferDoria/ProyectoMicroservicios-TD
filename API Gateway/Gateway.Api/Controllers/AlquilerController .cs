@@ -60,20 +60,16 @@ namespace Gateway.Api.Controllers
         }
 
         [HttpPost(RouteAlquiler.Create)]
-        public ActionResult<Task<Alquiler.Alquiler>> CrearAlquiler(Alquiler.Alquiler alquiler)
+        public void CrearAlquiler(Alquiler.Alquiler alquiler)
         {
-
             try
             {
                 _alquilerClient.ApiV1AlquilerCreateAsync(alquiler);
-
-                return Ok();
             }
             catch (Exception ex)
             {
                 Log.Error("Exception: " +ex);
             }
-            return null;
         }
 
         [HttpPost(RouteAlquiler.Alquilar)]
@@ -101,18 +97,16 @@ namespace Gateway.Api.Controllers
         }
 
         [HttpDelete(RouteAlquiler.Delete)]
-        public ActionResult<Task<Alquiler.Alquiler>> EliminarAlquiler(double id)
+        public void EliminarAlquiler(double id)
         {
             try
             {
                 _alquilerClient.ApiV1AlquilerDeleteAsync(id);
-                return Ok(id);
             }
             catch (Exception ex)
             {
                 Log.Error("Exception: " + ex);
             }
-            return null;
         }
     }
 }

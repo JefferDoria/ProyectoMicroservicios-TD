@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Usuario.Dominio.Entidades
 {
-    [CollectionProperty("usuario")]
+    [CollectionProperty("Usuario")]
     [BsonIgnoreExtraElements]
     public class Usuario : EntityToLower<ObjectId>
     {

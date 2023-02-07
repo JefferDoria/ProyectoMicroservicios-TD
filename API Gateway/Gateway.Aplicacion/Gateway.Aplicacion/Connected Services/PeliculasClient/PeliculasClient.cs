@@ -31,12 +31,12 @@ namespace Gateway.Aplicacion.PeliculasClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Pelicula> ApiV1PeliculaAsync(int id);
+        System.Threading.Tasks.Task<Pelicula> ApiV1PeliculaAsync(double id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<Pelicula> ApiV1PeliculaAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Pelicula> ApiV1PeliculaAsync(double id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -178,7 +178,7 @@ namespace Gateway.Aplicacion.PeliculasClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<Pelicula> ApiV1PeliculaAsync(int id)
+        public virtual System.Threading.Tasks.Task<Pelicula> ApiV1PeliculaAsync(double id)
         {
             return ApiV1PeliculaAsync(id, System.Threading.CancellationToken.None);
         }
@@ -186,7 +186,7 @@ namespace Gateway.Aplicacion.PeliculasClient
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<Pelicula> ApiV1PeliculaAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<Pelicula> ApiV1PeliculaAsync(double id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");

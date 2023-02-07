@@ -8,11 +8,11 @@ using System.Text;
 
 namespace Pelicula.Dominio.Entidades
 {
-    [CollectionProperty("pelicula")]
+    [CollectionProperty("Pelicula")]
     [BsonIgnoreExtraElements]
     public class Pelicula : EntityToLower<ObjectId>
     {
-        public int IdPelicula { get; set; }
+        public double IdPelicula { get; set; }
 
         public string Nombre { get; set; }
 

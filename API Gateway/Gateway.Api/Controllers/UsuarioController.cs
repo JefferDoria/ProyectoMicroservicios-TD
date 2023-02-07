@@ -33,18 +33,16 @@ namespace Gateway.Api.Controllers
         }
 
         [HttpPost(RouteUsuario.Create)]
-        public ActionResult<Task<Usuarios.Usuario>> CrearUsuario(Usuarios.Usuario usuario)
+        public void CrearUsuario(Usuarios.Usuario usuario)
         {
             _usuariosClient.ApiV1UsuarioCreateAsync(usuario);
-
-            return Ok();
         }
 
         [HttpDelete(RouteUsuario.Delete)]
-        public ActionResult<Task<Usuarios.Usuario>> EliminarUsuario(double id)
+        public void EliminarUsuario(double id)
         {
             _usuariosClient.ApiV1UsuarioDeleteAsync(id);
-            return Ok(id);
+            
         }
     }
 }

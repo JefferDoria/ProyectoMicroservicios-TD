@@ -45,15 +45,13 @@ namespace Alquiler.Api.Controllers
         }
 
         [HttpPost(RouteAlquiler.Create)]
-        public ActionResult<dominio.Alquiler> CrearUsuario(dominio.Alquiler alquiler)
+        public void CrearAlquiler(dominio.Alquiler alquiler)
         {
             _service.RegistrarAlquiler(alquiler);
-
-            return Ok();
         }
 
         [HttpPut(RouteAlquiler.Update)]
-        public ActionResult<dominio.Alquiler> ModificarUsuario(dominio.Alquiler alquiler)
+        public ActionResult<dominio.Alquiler> ModificarAlquiler(dominio.Alquiler alquiler)
         {
             _service.ModificarAlquiler(alquiler);
             return Ok();

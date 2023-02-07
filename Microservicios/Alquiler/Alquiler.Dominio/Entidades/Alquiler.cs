@@ -18,7 +18,7 @@ namespace Alquiler.Dominio.Entidades
 
         public string FechaFin { get; set; }
 
-        public double IdCliente { get; set; }
+        public double IdUsuario { get; set; }
 
         public double IdPelicula { get; set; }
     }

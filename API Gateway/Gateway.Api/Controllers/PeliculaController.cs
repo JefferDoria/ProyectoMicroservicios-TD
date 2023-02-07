@@ -51,33 +51,28 @@ namespace Gateway.Api.Controllers
         }
 
         [HttpPost(RoutePelicula.Create)]
-        public ActionResult<Task<Peliculas.Pelicula>> CrearPelicula(Peliculas.Pelicula pelicula)
+        public void CrearPelicula(Peliculas.Pelicula pelicula)
         {
             try
             {
                 _peliculasClient.ApiV1PeliculaCreateAsync(pelicula);
-
-                return Ok();
             } catch (Exception ex)
             {
                 Log.Error("Exception: " +ex);
             }
-            return null;
         }
 
         [HttpDelete(RoutePelicula.Delete)]
-        public ActionResult<Task<Peliculas.Pelicula>> EliminarPelicula(int id)
+        public void EliminarPelicula(int id)
         {
             try
             {
                 _peliculasClient.ApiV1PeliculaDeleteAsync(id);
-                return Ok(id);
             }
             catch (Exception ex)
             {
                 Log.Error("Exception: " + ex);
             }
-            return null;
         }
     }
 }
