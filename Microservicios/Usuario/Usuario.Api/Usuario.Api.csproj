@@ -1,8 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Release.MongoDB.Repository" Version="1.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Usuario.Aplicacion\Usuario.Aplicacion.csproj" />
+    <ProjectReference Include="..\Usuario.Dominio\Usuario.Dominio.csproj" />
+  </ItemGroup>
 
 
 </Project>

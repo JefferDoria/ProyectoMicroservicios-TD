@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Release.MongoDB.Repository;
 
 namespace Usuario.Infraestructura
 {
-    internal class IDbContext
+    public interface IDbContext : IDataContext
     {
     }
 }
